@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./Quiz.css";
-import { data } from "./../../assets/data";
+import { data } from "../../assets/data";
 
 const Quiz = () => {
   //Set state so we know which number question we are on in the array
