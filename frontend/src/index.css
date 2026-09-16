@@ -1,4 +1,4 @@
-* {
+@import "tailwindcss"; /* * {
   margin: 0;
   padding: 0;
 }
@@ -6,4 +6,4 @@
 body {
   height: 100vh;
   background-image: linear-gradient(#d8c7ff, #19006c);
-}
+} */
