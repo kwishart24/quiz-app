@@ -75,21 +75,20 @@ ResultSchema.pre("save", function (next) {
   const total = Number(this.totalQuestions) || 0;
   const correct = Number(this.correct) || 0;
 
-  this.score = total ? Math.round((correct / total) = 100) : 0;
+  this.score = total ? Math.round((correct / total) * 100) : 0;
 
-  if(this.score >= 85) this.performance = 'Excellent';
-  else if(this.score >= 65) this.performance = 'Good';
-  else if(this.score >= 45) this.performance = 'Average';
-  else this.performance = 'Needs Work';
+  if (this.score >= 85) this.performance = "Excellent";
+  else if (this.score >= 65) this.performance = "Good";
+  else if (this.score >= 45) this.performance = "Average";
+  else this.performance = "Needs Work";
 
-if ((this.wrong === undefined || this.wrong === null) && total) {
+  if ((this.wrong === undefined || this.wrong === null) && total) {
     this.wrong = Math.max(0, total - correct);
-} 
+  }
 
-next();
-
+  next();
 });
 
-const Result = mongoose.models.Result || mongoose.model('Result', ResultSchema);
+const Result = mongoose.models.Result || mongoose.model("Result", ResultSchema);
 
 export default Result;
